@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Owner Dashboard | The Compact Media</title>
+<link rel="icon" type="image/png" href="assets/logo-192.png">
+<link rel="stylesheet" href="css/admin.css">
+</head><body>
+<div id="boot" class="center"><div class="spin"></div></div>
+
+<section id="setup" class="center" hidden><div class="card setup"><img src="assets/logo-96.png" alt="" height="56">
+<h1>Backend setup required</h1><p>This dashboard needs a Supabase project. Nothing can be saved or published until it is connected.</p>
+<ol><li>Create a free project at supabase.com.</li><li>Run <code>supabase/setup.sql</code> in the SQL Editor.</li><li>Create the owner user and add it to <code>admins</code> (see README).</li><li>Put the project URL and anon key in <code>js/config.js</code>.</li></ol></div></section>
+
+<section id="auth" hidden>
+  <div class="split"><aside class="brand"><img src="assets/logo-800.png" alt="The Compact Media" class="biglogo"><p>Private owner dashboard.<br>Manage what the world sees.</p></aside>
+  <main class="formside"><div class="fbox">
+   <form id="lf" novalidate><h1>Welcome back</h1><p class="mu">Sign in to manage your website content.</p>
+    <label for="em">Email</label><input id="em" type="email" autocomplete="username" required>
+    <label for="pw">Password</label><div class="pwrap"><input id="pw" type="password" autocomplete="current-password" required><button type="button" id="tg" aria-label="Show password">Show</button></div>
+    <div class="between"><label class="chk"><input type="checkbox" id="rm" checked> Keep me signed in</label><a href="#" id="fg">Forgot password?</a></div>
+    <p class="err" id="le" role="alert"></p><button class="btn full" id="lb">Sign in</button></form>
+   <form id="ff" hidden novalidate><h1>Reset password</h1><p class="mu">We’ll email you a reset link.</p><label for="fe">Email</label><input id="fe" type="email" required>
+    <p class="err" id="fer" role="alert"></p><button class="btn full">Send reset link</button><p style="text-align:center"><a href="#" id="bk">Back to sign in</a></p></form>
+   <form id="nf" hidden novalidate><h1>Choose a new password</h1><label for="np">New password (8+ characters)</label><input id="np" type="password" autocomplete="new-password" required>
+    <p class="err" id="ner" role="alert"></p><button class="btn full">Save password</button></form>
+  </div></main></div>
+</section>
+
+<div id="app" hidden>
+  <header class="mbar"><button class="ib" id="mb" aria-label="Open menu">☰</button><img src="assets/logo-96.png" alt="The Compact Media" height="32"></header>
+  <aside id="sb"><img src="assets/logo-192.png" alt="The Compact Media" class="slogo">
+   <nav id="nv"><a href="#/overview">Overview</a><a href="#/live">Live Now</a><a href="#/work">Our Work</a><a href="#/testimonials">Our Testimonials</a><a href="#/feedback">Customer Feedback<span class="dot" id="bd" hidden></span></a></nav>
+   <div class="sfoot"><small id="who"></small><button class="btn ghost full" id="lo">Log out</button></div></aside>
+  <div id="scrim"></div>
+  <main id="mn" tabindex="-1"></main>
+</div>
+
+<dialog id="drw"></dialog><dialog id="cfm"><h3 id="cft"></h3><p id="cfp" class="mu"></p><div class="acts end"><button class="btn ghost" id="cfn">Cancel</button><button class="btn" id="cfy">Confirm</button></div></dialog>
+<dialog id="pv"><div id="pvb"></div><div class="acts end"><button class="btn ghost" id="pvc">Close</button></div></dialog>
+<div id="toasts" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/config.js"></script><script src="js/core.js"></script><script src="js/editor.js"></script><script src="js/manager.js"></script>
+<script src="js/views.js"></script><script src="js/app.js"></script>
+</body></html>
